@@ -9,7 +9,7 @@ permissions:
   actions: write
   contents: write
   pull-requests: write
-  repository-projects: write
+  #repository-projects: write # This is for classic projects which are deprecated
 
 jobs:
   update-copyright:
