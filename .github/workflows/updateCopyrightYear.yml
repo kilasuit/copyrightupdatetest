@@ -16,7 +16,7 @@ jobs:
     - name: Update copyright notice
       run: |
         pwsh -Command "
-          $configFilePath = 'config.toml'
+          $configFilePath = '.\config.toml'
           $Content = Get-Content -Path $configFilePath
           $currentYear = (Get-Date).Year
           $PreviousYear = (Get-Date).Year - 1
