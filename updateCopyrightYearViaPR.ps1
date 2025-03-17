@@ -12,7 +12,7 @@ Set-Content -Path $configFilePath -Value $UpdatedContent
 git config --global user.name 'github-actions[bot]'
 git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 git add config.toml
-git commit -m "Update copyright notice for the year $(Get-date +'%Y')"
+git commit -m "Update copyright notice for the year $currentYear"
 git push
 
 gh pr create --title "Update copyright notice for the year $currentYear" --body "This PR updates the copyright notice for the year $currentYear" --base main --head $branchName
