@@ -14,15 +14,9 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Update copyright notice
+      shell: pwsh
       run: |
-        pwsh -Command "
-          $configFilePath = '.\config.toml'
-          $Content = Get-Content -Path $configFilePath
-          $currentYear = (Get-Date).Year
-          $PreviousYear = (Get-Date).Year - 1
-          $UpdatedContent = $Content -replace $PreviousYear,$currentYear
-          Set-Content -Path $configFilePath -Value $UpdatedContent
-          "
+        .\updateCopyrightYear.ps1
 
     - name: Commit changes
       run: |
