@@ -1,0 +1,26 @@
+name: Update Copyright Notice Via PR
+
+on:
+  schedule:
+    - cron: '0 0 1 1 *' # Runs at midnight on the first day of every year
+  workflow_dispatch:
+
+permissions: 
+  actions: write
+  contents: write
+
+jobs:
+  update-copyright:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Update copyright notice for this Year & Create PR
+      shell: pwsh
+      run: |
+        .\updateCopyrightYearViaPR.ps1
+
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
